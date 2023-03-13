@@ -82,8 +82,14 @@ using DevExpress.Blazor;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 16 "C:\Users\User\source\repos\BlazorApplication1\BlazorApplication1\_Imports.razor"
+using BlazorApplication1.Model;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
-    [Microsoft.AspNetCore.Components.RouteAttribute("/cositas/")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -91,6 +97,18 @@ using DevExpress.Blazor;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 26 "C:\Users\User\source\repos\BlazorApplication1\BlazorApplication1\Pages\Index.razor"
+      
+    IList<TodoItem> todos = new List<TodoItem> {
+        new TodoItem {Text = "Levantarme" },
+        new TodoItem {Text = "Ducharme"}
+    };
+
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

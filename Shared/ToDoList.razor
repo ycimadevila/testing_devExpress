@@ -1,0 +1,31 @@
+﻿@* HTML Section *@
+
+<table class="table">
+    <thead>
+        <tr>
+            <td style="width: 40px;">Done</td>
+            <td>To Do</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var t in ToDos) {
+            <ToDo Text="@t.Text" Done="@t.Done"></ToDo>
+        }
+    </tbody>
+</table>
+
+<NewEntryToDo OnNewItem="@OnNewItem"></NewEntryToDo>
+
+@code {
+    [Parameter]
+    public IList<TodoItem> ToDos { get; set; }
+
+    void OnNewItem(string newItemText)
+    {
+        if (ToDos != null)
+        {
+            ToDos.Add(new TodoItem { Text = newItemText });
+            StateHasChanged();
+        }
+    }
+}

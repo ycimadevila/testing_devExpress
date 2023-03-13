@@ -80,6 +80,13 @@ using DevExpress.Blazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 16 "C:\Users\User\source\repos\BlazorApplication1\BlazorApplication1\_Imports.razor"
+using BlazorApplication1.Model;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 3 "C:\Users\User\source\repos\BlazorApplication1\BlazorApplication1\Pages\DataGrid.razor"
 using BlazorApplication1.Data;
 

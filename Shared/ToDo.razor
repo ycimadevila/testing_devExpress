@@ -1,16 +1,22 @@
-﻿@page "/todo"
-
-<div class="todo">
+﻿@* HTML Section *@
+@*<div class="todo">
     <input type="checkbox" @bind="Done"/>
-    <span class="@textClass">@Texto</span>
-</div>
+    <span class="@textClass">@Text</span>
+</div>*@
+
+<tr class="todo">
+    <td> <input class="@rowClass" type="checkbox" @bind="Done" /></td>
+    <td> <span class="@textClass">@Text</span></td>
+</tr>
 
 @code {
     [Parameter]
-    public string Texto { get; set; } = "Tarea";
+    public string Text { get; set; } = "Tarea";
 
     [Parameter]
     public bool Done { get; set; } = true;
 
     string textClass => Done ? "done" : null;
+    string rowClass => Done ? "table-secondary" : null;
 }
+ 

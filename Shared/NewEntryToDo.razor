@@ -1,0 +1,37 @@
+﻿<div class="input-group">
+    <div class="input-group-prepend">
+        <span class="input-group-text"></span>
+    </div>
+    <input type="text" class="form-control" 
+           placeholder="Enter your item"
+           @bind-value="Text" @bind-value:event="oninput"
+           @onkeypress="KeyPress"
+           />
+    <div class="input-group-append">
+        <button class="btn btn-group @buttonDisable" @onclick="NewItem">
+            Agregar
+        </button>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public Action<string> OnNewItem { get; set; }
+
+    string Text { get; set; }
+
+    string buttonDisable => Text != null && Text.Length > 0 ? null : "disable";
+
+    void NewItem() {
+        if (OnNewItem != null) {
+            OnNewItem(Text);
+            Text = "";
+        }
+    }
+
+    void KeyPress(KeyboardEventArgs e) {
+        if(e.Key == "Enter") {
+            NewItem();
+        }
+    }
+}

@@ -89,7 +89,7 @@ using BlazorApplication1.Model;
 #line default
 #line hidden
 #nullable disable
-    public partial class ToDo : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class NewEntryToDo : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -97,16 +97,27 @@ using BlazorApplication1.Model;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 12 "C:\Users\User\source\repos\BlazorApplication1\BlazorApplication1\Shared\ToDo.razor"
+#line 17 "C:\Users\User\source\repos\BlazorApplication1\BlazorApplication1\Shared\NewEntryToDo.razor"
        
     [Parameter]
-    public string Text { get; set; } = "Tarea";
+    public Action<string> OnNewItem { get; set; }
 
-    [Parameter]
-    public bool Done { get; set; } = true;
+    string Text { get; set; }
 
-    string textClass => Done ? "done" : null;
-    string rowClass => Done ? "table-secondary" : null;
+    string buttonDisable => Text != null && Text.Length > 0 ? null : "disable";
+
+    void NewItem() {
+        if (OnNewItem != null) {
+            OnNewItem(Text);
+            Text = "";
+        }
+    }
+
+    void KeyPress(KeyboardEventArgs e) {
+        if(e.Key == "Enter") {
+            NewItem();
+        }
+    }
 
 #line default
 #line hidden

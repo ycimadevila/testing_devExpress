@@ -1,5 +1,4 @@
 ﻿@page "/"
-@page "/cositas/"
 
 
 @*<h2 class="pb-2">Blazor Components</h2>
@@ -21,7 +20,14 @@
 
 @*<MyComponent incremento="5"></MyComponent>*@
 
-<ToDo Texto="Tomarme un Té" Done="false"></ToDo>
-<ToDo Texto="Prepararme el desayuno" Done="false"></ToDo>
-<ToDo Texto="Trabajar" Done="false"></ToDo>
+
+<ToDoList ToDos="@todos"></ToDoList>
+
+@code{
+    IList<TodoItem> todos = new List<TodoItem> {
+        new TodoItem {Text = "Levantarme" },
+        new TodoItem {Text = "Ducharme"}
+    };
+
+}
 

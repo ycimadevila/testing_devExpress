@@ -82,6 +82,13 @@ using DevExpress.Blazor;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 16 "C:\Users\User\source\repos\BlazorApplication1\BlazorApplication1\_Imports.razor"
+using BlazorApplication1.Model;
+
+#line default
+#line hidden
+#nullable disable
     public partial class _Imports : System.Object
     {
         #pragma warning disable 1998
