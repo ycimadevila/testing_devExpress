@@ -1,0 +1,16 @@
+﻿@page "/todo"
+
+<div class="todo">
+    <input type="checkbox" @bind="Done"/>
+    <span class="@textClass">@Texto</span>
+</div>
+
+@code {
+    [Parameter]
+    public string Texto { get; set; } = "Tarea";
+
+    [Parameter]
+    public bool Done { get; set; } = true;
+
+    string textClass => Done ? "done" : null;
+}

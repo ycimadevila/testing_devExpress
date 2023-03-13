@@ -82,8 +82,8 @@ using DevExpress.Blazor;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/my-comp")]
-    public partial class MyComponent : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/todo")]
+    public partial class ToDo : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -91,17 +91,15 @@ using DevExpress.Blazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 7 "C:\Users\User\source\repos\BlazorApplication1\BlazorApplication1\Shared\MyComponent.razor"
+#line 8 "C:\Users\User\source\repos\BlazorApplication1\BlazorApplication1\Shared\ToDo.razor"
        
-    //componente parecido al counter de blazor 
-    public int numero_inicio { get; set; } = 1;
     [Parameter]
-    public int incremento { get; set; } = 1;
+    public string Texto { get; set; } = "Tarea";
 
-    public void Aumentar()
-    {
-        numero_inicio += incremento;
-    }
+    [Parameter]
+    public bool Done { get; set; } = true;
+
+    string textClass => Done ? "done" : null;
 
 #line default
 #line hidden
