@@ -1,0 +1,16 @@
+﻿@page "/my-comp"
+
+<h3>MyComponent</h3>
+<h2>@numero_inicio</h2>
+<button class="btn-primary" @onclick="Aumentar">Click Me</button>
+
+@code {
+    public int numero_inicio { get; set; } = 1;
+    [Parameter]
+    public int incremento { get; set; } = 1;
+
+    public void Aumentar()
+    {
+        numero_inicio += incremento;
+    }
+}
